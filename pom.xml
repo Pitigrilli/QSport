@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.jack</groupId>
+    <artifactId>qsport_admin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+        <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <itext.version>7.1.11</itext.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.16</version>
+            <type>jar</type>
+        </dependency>  
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.5</version>
+        </dependency>
+          <dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>kernel</artifactId>
+        <version>7.1.11</version>
+               <type>jar</type>
+          </dependency>
+	<!-- always needed -->
+    <dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>io</artifactId>
+        <version>${itext.version}</version>
+    </dependency>
+	<!-- always needed -->
+    <dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>layout</artifactId>
+        <version>7.1.11</version>
+      <type>jar</type>
+    </dependency>
+        <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+         <version>1.7.30</version>
+    </dependency>
+    <!--             <type>jar</type> -->
+    </dependencies>
+</project>
