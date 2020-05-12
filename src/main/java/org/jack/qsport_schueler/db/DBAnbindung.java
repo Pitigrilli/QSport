@@ -22,7 +22,7 @@ public class DBAnbindung {
     
     public DBAnbindung(){
         
-        String url = "jdbc:mysql://172.29.253.250:3306?useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin&useSSL=false";
+        String url = "jdbc:mysql://jsg-kg.fortiddns.com:3306?useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin&useSSL=false";
         String username = "q11";
         String password = "q11";
         
