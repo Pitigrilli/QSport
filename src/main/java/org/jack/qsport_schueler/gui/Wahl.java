@@ -90,14 +90,14 @@ public class Wahl extends javax.swing.JFrame {
 
         jLabel6.setText("Wahl 3");
 
-        auswahl1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gymnastik/Tanz", "Leichtathletik", "Schwimmen" }));
+        auswahl1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GymnastikTanz", "Leichtathletik", "Schwimmen" }));
         auswahl1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 auswahl1ActionPerformed(evt);
             }
         });
 
-        auswahl3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Badminton", "Basketball", "Fußball", "Gymnastik/Tanz", "Leichtathletik", "Schwimmen", "Volleyball" }));
+        auswahl3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Badminton", "Basketball", "Fußball", "GymnastikTanz", "Leichtathletik", "Schwimmen", "Volleyball" }));
         auswahl3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 auswahl3ActionPerformed(evt);
@@ -111,7 +111,7 @@ public class Wahl extends javax.swing.JFrame {
             }
         });
 
-        auswahl4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basketball", "Fußball", "Gymnastik/Tanz", "Leichtathletik", "Schwimmen", "Volleyball" }));
+        auswahl4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basketball", "Fußball", "GymnastikTanz", "Leichtathletik", "Schwimmen", "Volleyball" }));
         auswahl4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 auswahl4ActionPerformed(evt);
@@ -127,7 +127,7 @@ public class Wahl extends javax.swing.JFrame {
 
         jLabel7.setText("Wahl 5");
 
-        auswahl5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basketball", "Fußball", "Gymnastik/Tanz", "Leichtathletik", "Schwimmen", "Volleyball" }));
+        auswahl5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basketball", "Fußball", "GymnastikTanz", "Leichtathletik", "Schwimmen", "Volleyball" }));
         auswahl5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 auswahl5ActionPerformed(evt);
@@ -214,7 +214,7 @@ public class Wahl extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BFestlegen)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
