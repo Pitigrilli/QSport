@@ -20,25 +20,25 @@ public class Wahl extends javax.swing.JFrame {
         initComponents();
         this.setTitle(std.getName() + ", " + std.getVorname());
         
-        if (std.getWahl(1) != null) {
-            String wahl1 = std.getWahl(1).name();
+        if (std.getWahl(0) != null) {
+            String wahl1 = std.getWahl(0).name();
             auswahl1.setSelectedItem(wahl1);
         }
-        if (std.getWahl(2) != null) {
-            String wahl2 = std.getWahl(2).name();
+        if (std.getWahl(1) != null) {
+            String wahl2 = std.getWahl(1).name();
             auswahl2.setSelectedItem(wahl2);
         }
-        if (std.getWahl(3) != null) {
-            String wahl3 = std.getWahl(3).name();
+        if (std.getWahl(2) != null) {
+            String wahl3 = std.getWahl(2).name();
             auswahl3.setSelectedItem(wahl3);
         }
-        if (std.getWahl(4) != null) {
-            String wahl4 = std.getWahl(4).name();
+        if (std.getWahl(3) != null) {
+            String wahl4 = std.getWahl(3).name();
             auswahl4.setSelectedItem(wahl4);
 
         }
-        if (std.getWahl(5) != null) {
-            String wahl5 = std.getWahl(5).name();
+        if (std.getWahl(4) != null) {
+            String wahl5 = std.getWahl(4).name();
             auswahl5.setSelectedItem(wahl5);
 
         }
@@ -244,38 +244,38 @@ public class Wahl extends javax.swing.JFrame {
     private void auswahl1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auswahl1ActionPerformed
         // TODO add your handling code here:
         String wahl1 = auswahl1.getSelectedItem().toString();
-        s.setWahl(1, Sportart.valueOf(wahl1));
+        s.setWahl(0, Sportart.valueOf(wahl1));
     }//GEN-LAST:event_auswahl1ActionPerformed
 
     private void auswahl3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auswahl3ActionPerformed
         // TODO add your handling code here:
         String wahl2 = auswahl2.getSelectedItem().toString();
-        s.setWahl(2, Sportart.valueOf(wahl2));
+        s.setWahl(1, Sportart.valueOf(wahl2));
     }//GEN-LAST:event_auswahl3ActionPerformed
 
     private void auswahl2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auswahl2ActionPerformed
         // TODO add your handling code here:
         String wahl3 = auswahl3.getSelectedItem().toString();
-        s.setWahl(3, Sportart.valueOf(wahl3));
+        s.setWahl(2, Sportart.valueOf(wahl3));
     }//GEN-LAST:event_auswahl2ActionPerformed
 
     private void auswahl4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auswahl4ActionPerformed
         // TODO add your handling code here:
         String wahl4 = auswahl4.getSelectedItem().toString();
-        s.setWahl(4, Sportart.valueOf(wahl4));
+        s.setWahl(3, Sportart.valueOf(wahl4));
     }//GEN-LAST:event_auswahl4ActionPerformed
 
     private void BFestlegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BFestlegenActionPerformed
         String wahl1 = auswahl1.getSelectedItem().toString();
-        s.setWahl(1, Sportart.valueOf(wahl1));
+        s.setWahl(0, Sportart.valueOf(wahl1));
         String wahl2 = auswahl2.getSelectedItem().toString();
-        s.setWahl(2, Sportart.valueOf(wahl2));
+        s.setWahl(1, Sportart.valueOf(wahl2));
         String wahl3 = auswahl3.getSelectedItem().toString();
-        s.setWahl(3, Sportart.valueOf(wahl3));
+        s.setWahl(2, Sportart.valueOf(wahl3));
         String wahl4 = auswahl4.getSelectedItem().toString();
-        s.setWahl(4, Sportart.valueOf(wahl4));
+        s.setWahl(3, Sportart.valueOf(wahl4));
         String wahl5 = auswahl5.getSelectedItem().toString();
-        s.setWahl(5, Sportart.valueOf(wahl5));
+        s.setWahl(4, Sportart.valueOf(wahl5));
         if (s.istWahlErlaubt()) {
             DBAnbindung vb = new DBAnbindung("jsg-kg.fortiddns.com","q11","q11");
             vb.updateStudent(s);
@@ -292,7 +292,7 @@ public class Wahl extends javax.swing.JFrame {
     private void auswahl5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auswahl5ActionPerformed
         // TODO add your handling code here:
         String wahl5 = auswahl5.getSelectedItem().toString();
-        s.setWahl(5, Sportart.valueOf(wahl5));
+        s.setWahl(4, Sportart.valueOf(wahl5));
     }//GEN-LAST:event_auswahl5ActionPerformed
 
     /**

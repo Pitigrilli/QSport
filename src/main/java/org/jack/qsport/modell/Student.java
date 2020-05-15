@@ -86,7 +86,7 @@ public class Student implements Serializable
     
     public boolean istWahlErlaubt(){
         boolean i = false;
-        if(this.getWahl(1) != null && this.getWahl(2) != null && this.getWahl(3) != null && this.getWahl(4) != null && this.getWahl(5) != null){
+        if(this.getWahl(0) != null && this.getWahl(1) != null && this.getWahl(2) != null && this.getWahl(3) != null && this.getWahl(4) != null){
             i = true;
         }
         

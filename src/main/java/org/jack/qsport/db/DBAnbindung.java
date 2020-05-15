@@ -213,9 +213,9 @@ public class DBAnbindung {
 
                 a = new Student(name, vorname, gebDatum);
 
-                for (int i = 1; i < 6; i++) {
+                for (int i = 0; i < 5; i++) {
                     Sportart k;
-                    String sK = resultSet.getString("Wahl" + i);
+                    String sK = resultSet.getString("Wahl" + (i+1));
                     if (resultSet.wasNull()) {
                         k = null;
                     } else {
@@ -246,8 +246,8 @@ public class DBAnbindung {
             System.out.println(sql);
             resultSet = statement.executeQuery(sql);
             resultSet.first();
-            for(int i=1; i<6;i++){
-                resultSet.updateString("Wahl"+i, s.getWahl(i).name());
+            for(int i=0; i<5;i++){
+                resultSet.updateString("Wahl"+(i+1), s.getWahl(i).name());
             }
             
 

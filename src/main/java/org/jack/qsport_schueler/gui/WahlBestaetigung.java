@@ -23,28 +23,28 @@ public class WahlBestaetigung extends javax.swing.JFrame {
         this.setTitle(s.getName() + ", " + s.getVorname());
         
         String wahl1 ="";
-        if(s.getWahl(1)!=null){
-            wahl1 = s.getWahl(1).toString();
+        if(s.getWahl(0)!=null){
+            wahl1 = s.getWahl(0).toString();
         }
         
         String wahl2 = "";
-        if(s.getWahl(2)!=null){
-            wahl2 = s.getWahl(2).toString();
+        if(s.getWahl(1)!=null){
+            wahl2 = s.getWahl(1).toString();
         }
         
         String wahl3 = "";
-        if(s.getWahl(3)!=null){
-            wahl3 = s.getWahl(3).name();
+        if(s.getWahl(2)!=null){
+            wahl3 = s.getWahl(2).name();
         }
         
         String wahl4 = "";
-        if(s.getWahl(4)!=null){
-            wahl4 = s.getWahl(4).name();
+        if(s.getWahl(3)!=null){
+            wahl4 = s.getWahl(3).name();
         }
         
         String wahl5 = "";
-        if(s.getWahl(5)!=null){
-            wahl5 = s.getWahl(5).name();
+        if(s.getWahl(4)!=null){
+            wahl5 = s.getWahl(4).name();
         }
         
         jLabel111.setText(wahl1);
