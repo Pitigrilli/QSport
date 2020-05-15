@@ -1,0 +1,9 @@
+Your project has dependencies that are not resolved locally. Code completion in the IDE will not include classes from these dependencies or their transitive dependencies (unless they are among the open projects).
+Please download the dependencies, or install them manually, if not available remotely.
+
+The artifacts are:
+ com.itextpdf:kernel:jar:7.1.11
+com.itextpdf:io:jar:7.1.11
+com.itextpdf:layout:jar:7.1.11
+org.slf4j:slf4j-simple:jar:1.7.30
+org.swinglabs.swingx:swingx-all:jar:1.6.4
