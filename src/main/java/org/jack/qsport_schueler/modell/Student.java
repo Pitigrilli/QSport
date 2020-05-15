@@ -1,29 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.jack.qsport_schueler.modell;
 
 import java.io.Serializable;
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.Date;
-import org.jack.qsport_schueler.db.DBAnbindung;
+import org.jack.qsport.modell.Sportart;
 
-/**
- *
- * @author kiesel.christoph
- */
 public class Student implements Serializable {
     
     private String name, vorname, klasse;
     private Date geburtsdatum;
     private Sportart wahl1, wahl2, wahl3, wahl4, wahl5;
     private int score;
-    private Connection connect = null;
-    private Statement statement;
-    private ResultSet resultSet;
+
     
     
     public Student(String name, String vorname, Date gebdate){
@@ -58,11 +45,11 @@ public class Student implements Serializable {
         return vorname;
     }
     
-    public void setDate(Date gebdate){
+    public void setDatum(Date gebdate){
         this.geburtsdatum = gebdate;
     }
     
-    public Date getDate(){
+    public Date getDatum(){
         return geburtsdatum;
     }
     

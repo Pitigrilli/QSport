@@ -1,4 +1,4 @@
-package org.jack.qsport_admin.db;
+package org.jack.qsport.db;
 
 import java.util.ArrayList;
 import java.io.*;
@@ -7,8 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import org.jack.qsport_admin.modell.QSport;
-import org.jack.qsport_admin.modell.Student;
+import org.jack.qsport.modell.QSport;
+import org.jack.qsport.modell.Student;
 
 /**
  *

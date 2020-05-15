@@ -393,7 +393,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxSportartenActionPerformed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] stringsNamen;&#xa;org.jack.qsport_admin.modell.Sportart[] namen =   org.jack.qsport_admin.modell.Sportart.values();      &#xa;stringsNamen = new String[namen.length];&#xa;for(int i=0; i&lt;stringsNamen.length;i++){&#xa;  stringsNamen[i] = namen[i].toString();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] stringsNamen;&#xa;org.jack.qsport.modell.Sportart[] namen =   org.jack.qsport.modell.Sportart.values();      &#xa;stringsNamen = new String[namen.length];&#xa;for(int i=0; i&lt;stringsNamen.length;i++){&#xa;  stringsNamen[i] = namen[i].toString();&#xa;}"/>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>

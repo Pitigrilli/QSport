@@ -6,8 +6,8 @@
 package org.jack.qsport_schueler.gui;
 
 import java.util.Date;
-import org.jack.qsport_schueler.db.DBAnbindung;
-import org.jack.qsport_schueler.modell.Student;
+import org.jack.qsport.db.DBAnbindung;
+import org.jack.qsport.modell.Student;
 
 /**
  *
@@ -173,7 +173,7 @@ public class Anmeldefenster extends javax.swing.JFrame {
     private void jButtonSucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSucheActionPerformed
 
         Student stud = new Student(this.getNachname(), this.getVorname(), this.getDate());
-        DBAnbindung v = new DBAnbindung();
+        DBAnbindung v = new DBAnbindung("jsg-kg.fortiddns.com","q11","q11");
         Student gefunden = v.searchStudent(stud);
         System.out.print(gefunden);
 

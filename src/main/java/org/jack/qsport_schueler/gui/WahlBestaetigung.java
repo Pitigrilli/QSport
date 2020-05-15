@@ -5,8 +5,8 @@
  */
 package org.jack.qsport_schueler.gui;
 
-import org.jack.qsport_schueler.db.DBAnbindung;
-import org.jack.qsport_schueler.modell.Student;
+import org.jack.qsport.db.DBAnbindung;
+import org.jack.qsport.modell.Student;
 
 /**
  *
@@ -23,28 +23,28 @@ public class WahlBestaetigung extends javax.swing.JFrame {
         this.setTitle(s.getName() + ", " + s.getVorname());
         
         String wahl1 ="";
-        if(s.getWahl1()!=null){
-            wahl1 = s.getWahl1().getNameSportart();
+        if(s.getWahl(1)!=null){
+            wahl1 = s.getWahl(1).toString();
         }
         
         String wahl2 = "";
-        if(s.getWahl2()!=null){
-            wahl2 = s.getWahl2().getNameSportart();
+        if(s.getWahl(2)!=null){
+            wahl2 = s.getWahl(2).toString();
         }
         
         String wahl3 = "";
-        if(s.getWahl3()!=null){
-            wahl3 = s.getWahl3().getNameSportart();
+        if(s.getWahl(3)!=null){
+            wahl3 = s.getWahl(3).name();
         }
         
         String wahl4 = "";
-        if(s.getWahl4()!=null){
-            wahl4 = s.getWahl4().getNameSportart();
+        if(s.getWahl(4)!=null){
+            wahl4 = s.getWahl(4).name();
         }
         
         String wahl5 = "";
-        if(s.getWahl5()!=null){
-            wahl5 = s.getWahl5().getNameSportart();
+        if(s.getWahl(5)!=null){
+            wahl5 = s.getWahl(5).name();
         }
         
         jLabel111.setText(wahl1);
@@ -220,7 +220,7 @@ public class WahlBestaetigung extends javax.swing.JFrame {
 
     private void jButtonZurückActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZurückActionPerformed
         // TODO add your handling code here:
-        DBAnbindung v = new DBAnbindung();
+        DBAnbindung v = new DBAnbindung("jsg-kg.fortiddns.com","q11","q11");
         Student gefunden = v.searchStudent(std);
         System.out.print(gefunden);
 

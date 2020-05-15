@@ -1,4 +1,4 @@
-package org.jack.qsport_admin.pdf;
+package org.jack.qsport.pdf;
 
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.geom.PageSize;
@@ -18,10 +18,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Date;
 
-import org.jack.qsport_admin.modell.Student;
-import org.jack.qsport_admin.modell.Kurs;
-import org.jack.qsport_admin.modell.QSport;
-import org.jack.qsport_admin.db.DBAnbindung;
+import org.jack.qsport.modell.Student;
+import org.jack.qsport.modell.Kurs;
+import org.jack.qsport.modell.QSport;
+import org.jack.qsport.db.DBAnbindung;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

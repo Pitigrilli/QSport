@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.jack.qsport_admin.helper;
+package org.jack.qsport.helper;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import javax.swing.JFileChooser;
-import org.jack.qsport_admin.modell.Kurs;
-import org.jack.qsport_admin.modell.QSport;
+import org.jack.qsport.modell.Kurs;
+import org.jack.qsport.modell.QSport;
 
 /**
  *

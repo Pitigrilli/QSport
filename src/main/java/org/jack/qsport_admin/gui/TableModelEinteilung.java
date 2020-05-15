@@ -7,8 +7,8 @@ package org.jack.qsport_admin.gui;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
-import org.jack.qsport_admin.modell.Kurs;
-import org.jack.qsport_admin.modell.Student;
+import org.jack.qsport.modell.Kurs;
+import org.jack.qsport.modell.Student;
 
 /**
  *

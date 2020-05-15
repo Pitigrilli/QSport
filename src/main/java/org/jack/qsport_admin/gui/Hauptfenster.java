@@ -1,17 +1,18 @@
 package org.jack.qsport_admin.gui;
 
 //import static com.itextpdf.kernel.pdf.PdfName.Art;
+import org.jack.qsport.db.Import;
+import org.jack.qsport.db.DBAnbindung;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import org.jack.qsport_admin.db.*;
-import org.jack.qsport_admin.helper.Persistenz;
-import org.jack.qsport_admin.modell.Kurs;
-import org.jack.qsport_admin.modell.QSport;
-import org.jack.qsport_admin.modell.Semester;
-import org.jack.qsport_admin.modell.Sportart;
-import org.jack.qsport_admin.modell.Student;
+import org.jack.qsport.helper.Persistenz;
+import org.jack.qsport.modell.Kurs;
+import org.jack.qsport.modell.QSport;
+import org.jack.qsport.modell.Semester;
+import org.jack.qsport.modell.Sportart;
+import org.jack.qsport.modell.Student;
 
 /**
  *
@@ -240,7 +241,7 @@ public class Hauptfenster extends javax.swing.JFrame {
         txtmaxAnzahl.setText("28");
 
         String[] stringsNamen;
-        org.jack.qsport_admin.modell.Sportart[] namen =   org.jack.qsport_admin.modell.Sportart.values();
+        org.jack.qsport.modell.Sportart[] namen =   org.jack.qsport.modell.Sportart.values();
         stringsNamen = new String[namen.length];
         for(int i=0; i<stringsNamen.length;i++){
             stringsNamen[i] = namen[i].toString();
