@@ -31,7 +31,7 @@ public class Student implements Serializable
         this.vorname = vorname;
         this.geburtsdatum = gebdate;
         for(int i=0; i < 5;i++){
-            wahl[i] = Sportart.Unbekannt;
+            wahl[i] = Sportart.valueOf("Unbekannt");
         }
     }
    
