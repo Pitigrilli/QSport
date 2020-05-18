@@ -3,31 +3,18 @@ package org.jack.qsport.modell;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Sportart implements Serializable {
-    
-    private static final ArrayList<Sportart> sportarten = new ArrayList<>();
+public class Sportart implements Serializable{
 
-    // geplant ist die Sportarten in der DB zu speichern.
-    public static Sportart Unbekannt = new Sportart("Unbekannt", 0, Art.SONSTIGE);
-    public static Sportart Basketball = new Sportart("Basketball", 1, Art.TEAM);
-    public static Sportart Fußball = new Sportart("Fußball", 2, Art.TEAM);
-    public static Sportart Volleyball = new Sportart("Volleyball", 3, Art.TEAM);
-    public static Sportart GymnastikTanz = new Sportart("GymnastikTanz", 3, Art.EINZEL);
-    public static Sportart Schwimmen = new Sportart("Schwimmen", 4, Art.EINZEL);
-    public static Sportart Leichtathletik = new Sportart("Leichtathletik", 5, Art.EINZEL);
-    public static Sportart Mountainbiking = new Sportart("Mountainbiking", 6, Art.SONSTIGE);
-    public static Sportart Badminton = new Sportart("Badminton", 7, Art.SONSTIGE);
+    private int ordinal;
+    private Art art;
+    private String name;
 
-    private final int ordinal;
-    private final Art art;
-    private final String name;
+    private static ArrayList<Sportart> sportarten = new ArrayList<>();
 
-    
-
-    public Sportart(String name, int ordinal, Art a) {
+    protected Sportart(String name, int ordinal, Art a) {
         this.name = name;
         this.ordinal = ordinal;
-        this.art = a;
+        art = a;
         sportarten.add(this);
     }
 
@@ -53,11 +40,20 @@ public class Sportart implements Serializable {
     public String name() {
         return name;
     }
-
-    @Override
-    public String toString() {
+    
+    public String toString(){
         return name;
     }
+
+    public static Sportart Unbekannt = new Sportart("Unbekannt", 0, Art.SONSTIGE);
+    public static Sportart Basketball = new Sportart("Basketball", 1, Art.TEAM);
+    public static Sportart Fußball = new Sportart("Fußball", 2, Art.TEAM);
+    public static Sportart Volleyball = new Sportart("Volleyball", 3, Art.TEAM);
+    public static Sportart GymnastikTanz = new Sportart("GymnastikTanz", 3, Art.EINZEL);
+    public static Sportart Schwimmen = new Sportart("Schwimmen", 4, Art.EINZEL);
+    public static Sportart Leichtathletik = new Sportart("Leichtathletik", 5, Art.EINZEL);
+    public static Sportart Mountainbiking = new Sportart("Mountainbiking", 6, Art.SONSTIGE);
+    public static Sportart Badminton = new Sportart("Badminton", 7, Art.SONSTIGE);
 
     public static void main(String[] args) {
         System.out.println("Ausgabe von toString der enum SportNamen:");
