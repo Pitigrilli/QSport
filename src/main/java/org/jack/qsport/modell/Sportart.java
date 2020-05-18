@@ -7,6 +7,7 @@ public class Sportart implements Serializable {
     
     private static final ArrayList<Sportart> sportarten = new ArrayList<>();
 
+    // geplant ist die Sportarten in der DB zu speichern.
     public static Sportart Unbekannt = new Sportart("Unbekannt", 0, Art.SONSTIGE);
     public static Sportart Basketball = new Sportart("Basketball", 1, Art.TEAM);
     public static Sportart Fußball = new Sportart("Fußball", 2, Art.TEAM);
