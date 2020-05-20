@@ -556,11 +556,18 @@ public class Hauptfenster extends javax.swing.JFrame {
 //        for(Kurs k: kurse){
 //            System.out.println(k);
 //        }
-        qsp.einteilung(Semester.Q12_2);
-        qsp.einteilung(Semester.Q11_2);
+        CreatePDF pdf = new CreatePDF(qsp);
         qsp.einteilung(Semester.Q11_1);
+        pdf.printKursVerteilung(Semester.Q11_1);
+        qsp.einteilung(Semester.Q11_2);
+        pdf.printKursVerteilung(Semester.Q11_2);
         qsp.einteilung(Semester.Q12_1);
-        new CreatePDF(qsp).printUebersicht();
+        pdf.printKursVerteilung(Semester.Q12_1);
+        qsp.einteilung(Semester.Q12_2);
+        pdf.printKursVerteilung(Semester.Q12_2);
+        
+        pdf.printUebersicht();
+        
         
         System.out.println("");
 

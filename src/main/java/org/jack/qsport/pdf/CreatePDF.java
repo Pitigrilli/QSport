@@ -1,6 +1,9 @@
 package org.jack.qsport.pdf;
 
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.colors.ColorConstants;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -26,6 +29,7 @@ import java.awt.Desktop;
 import org.jack.qsport.modell.Student;
 import org.jack.qsport.modell.Kurs;
 import org.jack.qsport.modell.QSport;
+import org.jack.qsport.modell.Semester;
 
 public class CreatePDF {
 
@@ -244,13 +248,14 @@ public class CreatePDF {
 
     }
 
-    public void printKursVerteilung(String semester) {
-        String DEST = "results/Jahrgang/KursVerteilung.pdf";
+    public void printKursVerteilung(Semester semester) {
+        String DEST = "results/KursVerteilung-"+semester+".pdf";
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         try {
             PdfWriter writer = new PdfWriter(DEST);
             PdfDocument pdf = new PdfDocument(writer);
+            PdfFont font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
 
             Document document = new Document(pdf);
             document.add(new Paragraph("Kursverteilung"));
