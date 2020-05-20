@@ -257,29 +257,28 @@ public class CreatePDF {
             PdfDocument pdf = new PdfDocument(writer);
             PdfFont font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
 
-            Document document = new Document(pdf);
+            Document document = new Document(pdf, PageSize.A4.rotate());
             document.add(new Paragraph("Kursverteilung"));
             document.add(new Paragraph("Semester: " + semester));
 
+            Table table = new Table(5);
             ArrayList<Kurs> kurse = qsp.getKurse();
-            for (int h = 0; h < kurse.size(); h++) {
-                if (kurse.get(h).getSemester().equals(semester)) {
-                    Kurs k = kurse.get(h);
-                    document.add(new Paragraph(k.getSemester() + " " + k.getSportart()));
-                    document.add(new Paragraph(k.getSportart().toString()));
-                    Table t1 = new Table(3);
+            for (Kurs k: kurse) {
+                if (k.getSemester().equals(semester)) {
+                    Table t1 = new Table(2);
+                    t1.setFontSize(8);
+                    t1.addHeaderCell(k.getSportart().toString());
+                    t1.addHeaderCell(""+k.getAnzahlStudent());
                     ArrayList<Student> studentList = k.getStudentList();
-                    Student aktuellerStudent;
-                    for (int i = 0; i < studentList.size(); i++) {
-                        aktuellerStudent = studentList.get(i);
-                        t1.addCell(aktuellerStudent.getName());
-                        t1.addCell(aktuellerStudent.getVorname());
-                        t1.addCell(DateToString(aktuellerStudent.getDatum()));
+                    for (Student s: studentList) {
+                        t1.addCell(s.getName());
+                        t1.addCell(s.getVorname());
                     }
-                    document.add(t1);
+                table.addCell(t1);    
                 }
-
+                
             }
+            document.add(table);
 
             document.close();
             zeigePDF(DEST);
