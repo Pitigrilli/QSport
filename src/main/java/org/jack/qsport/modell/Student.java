@@ -84,16 +84,30 @@ public class Student implements Serializable
         wahl[i] = s;
     }
     
+    /*
+        Diese Methode sollte überprüfen, ob wenigstens einmal 
+        Team und Einzelsportart gewählt wurde.
+        null kann die Wahl nicht sein, schon im Konstruktor wird 
+        ein Wert gesetzt. Sinnvoll wäre es wenn keine Wahl auf Unbekannt
+        steht und die Bedingungen der Sportfachschaft erfüllt wären.
+    */
     public boolean istWahlErlaubt(){
         boolean i = false;
-        if(this.getWahl(0) != null && this.getWahl(1) != null && this.getWahl(2) != null && this.getWahl(3) != null && this.getWahl(4) != null){
+        if(this.getWahl(0) != null 
+                && this.getWahl(1) != null 
+                && this.getWahl(2) != null 
+                && this.getWahl(3) != null 
+                && this.getWahl(4) != null){
             i = true;
         }
         
         return i;
     }
-   
     
+    /*
+        Student gelten als gleich, wenn sie in Name, Vorname und dem 
+        Geburtsdatum übereinstimmen.
+    */
     public boolean equals(Student andererStudent)
     {
         if(this.getName().equalsIgnoreCase(andererStudent.getName()))
@@ -117,7 +131,6 @@ public class Student implements Serializable
             return false;
         }
     } 
-     
     
     //@Override
     public String toString()
@@ -130,7 +143,6 @@ public class Student implements Serializable
       
         return ausgabe;
     }
-    
 }
 
 

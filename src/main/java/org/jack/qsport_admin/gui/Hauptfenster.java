@@ -1,12 +1,7 @@
 package org.jack.qsport_admin.gui;
 
-//import static com.itextpdf.kernel.pdf.PdfName.Art;
 import org.jack.qsport.db.Import;
 import org.jack.qsport.db.DBAnbindung;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import org.jack.qsport.helper.Persistenz;
 import org.jack.qsport.modell.Kurs;
 import org.jack.qsport.modell.QSport;
@@ -14,6 +9,10 @@ import org.jack.qsport.modell.Semester;
 import org.jack.qsport.modell.Sportart;
 import org.jack.qsport.modell.Student;
 
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import org.jack.qsport.pdf.CreatePDF;
 /**
  *
  * @author
@@ -28,7 +27,7 @@ public class Hauptfenster extends javax.swing.JFrame {
      * Creates new form Hauptfenster
      */
     public Hauptfenster() {
-        //    this.kurse = qsp.getKurse();
+        //    this.kurse = qsp.getKurseImSemester();
         initComponents();
         //this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH); 
     }
@@ -127,7 +126,7 @@ public class Hauptfenster extends javax.swing.JFrame {
 
         jLabel4.setText("Datenbank-Adresse:");
 
-        jTextField_host.setText("172.29.253.250");
+        jTextField_host.setText("jsg-kg.fortiddns.com");
         jTextField_host.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField_hostActionPerformed(evt);
@@ -541,21 +540,19 @@ public class Hauptfenster extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedEinteilungFocusLost
 
     private void wahlAusDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wahlAusDBActionPerformed
-        System.out.println("Hole die ergebnisse der Wahl");
+        System.out.println("Hole die Ergebnisse der Wahl");
         String host = jTextField_host.getText();
         String user = jTextField_user.getText();
         String password = jTextField_password.getText();
         DBAnbindung db = new DBAnbindung(host, user, password);
         qsp.setListeStudent(db.holeAlleStudenten());
         jTableGesamtListe.setModel(new TableModelGesamtListe(qsp.getListeStudent()));
-        for (Student s : qsp.getListeStudent()) {
-            System.out.println(s);
-        }
+        new CreatePDF(qsp).printJahrgangsWahl();
     }//GEN-LAST:event_wahlAusDBActionPerformed
 
     private void jButtonZuweisungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZuweisungActionPerformed
         // TODO add your handling code here:
-//        ArrayList<Kurs> kurse = qsp.getKurse(Semester.Q11_1);
+//        ArrayList<Kurs> kurse = qsp.getKurseImSemester(Semester.Q11_1);
 //        for(Kurs k: kurse){
 //            System.out.println(k);
 //        }
@@ -563,7 +560,8 @@ public class Hauptfenster extends javax.swing.JFrame {
         qsp.einteilung(Semester.Q11_2);
         qsp.einteilung(Semester.Q11_1);
         qsp.einteilung(Semester.Q12_1);
-
+        new CreatePDF(qsp).printUebersicht();
+        
         System.out.println("");
 
         System.out.println("**** Keine Kurse erhalten ******");
