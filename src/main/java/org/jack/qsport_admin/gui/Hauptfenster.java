@@ -87,11 +87,6 @@ public class Hauptfenster extends javax.swing.JFrame {
         });
 
         jTabbedPane1.setBackground(new java.awt.Color(153, 153, 153));
-        jTabbedPane1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTabbedPane1FocusGained(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 255));
 
@@ -382,6 +377,11 @@ public class Hauptfenster extends javax.swing.JFrame {
             }
         });
 
+        jPanel11_1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel11_1FocusGained(evt);
+            }
+        });
         jPanel11_1.setLayout(new java.awt.GridLayout(1, 10));
         jTabbedEinteilung.addTab("11-1", jPanel11_1);
 
@@ -516,23 +516,10 @@ public class Hauptfenster extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_spImportActionPerformed
 
-    private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTabbedPane1FocusGained
-
     private void jTabbedEinteilungFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedEinteilungFocusGained
         // TODO add your handling code here:
 
-        for (Kurs k : qsp.getKurse()) {
-            if (k.getSemester() == Semester.Q11_1) {
-                System.out.println(k.getSportart() + " " + k.getStudentList().size());
-                JScrollPane jsp = new JScrollPane();
-                JTable jt = new JTable();
-                jt.setModel(new TableModelEinteilung(k.getStudentList()));
-                jsp.add(jt);
-                jPanel11_1.add(jsp);
-            }
-        }
+        
     }//GEN-LAST:event_jTabbedEinteilungFocusGained
 
     private void jTabbedEinteilungFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedEinteilungFocusLost
@@ -592,6 +579,21 @@ public class Hauptfenster extends javax.swing.JFrame {
     private void jTextField_hostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_hostActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_hostActionPerformed
+
+    private void jPanel11_1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel11_1FocusGained
+        // TODO add your handling code here:
+        for (Kurs k : qsp.getKurse()) {
+            if (k.getSemester() == Semester.Q11_1) {
+                System.out.println(k.getSportart() + " " + k.getStudentList().size());
+                JScrollPane jsp = new JScrollPane();
+                JTable jt = new JTable();
+                jt.setModel(new TableModelEinteilung(k.getStudentList()));
+                jsp.add(jt);
+                jPanel11_1.add(jsp);
+                jPanel11_1.revalidate();
+            }
+        }
+    }//GEN-LAST:event_jPanel11_1FocusGained
 
     /**
      * @param args the command line arguments
