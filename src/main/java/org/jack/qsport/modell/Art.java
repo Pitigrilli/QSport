@@ -12,3 +12,4 @@ package org.jack.qsport.modell;
 public enum Art {
     EINZEL, TEAM, SONSTIGE
 }
+// jjojoi
