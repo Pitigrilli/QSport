@@ -234,6 +234,7 @@ public class WahlBestaetigung extends javax.swing.JFrame {
     private void jButtonFertigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFertigActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_jButtonFertigActionPerformed
 
 
