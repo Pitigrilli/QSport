@@ -23,19 +23,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="465" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="546" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel1" pref="522" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="378" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="379" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="23" max="32767" attributes="0"/>
@@ -94,8 +94,8 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="225" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="307" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -299,7 +299,7 @@
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Alle Wahlen besitzen die&#xa;gleiche Priorit&#xe4;t.&#xa;Jede Sportart darf max.&#xa;2x gew&#xe4;hlt werden.&#xa;Besonderheiten wie&#xa;Badminton und Mountain-&#xa;biking k&#xf6;nnen nur 1x&#xa;gew&#xe4;hlt werden."/>
+                <Property name="text" type="java.lang.String" value="Alle Wahlen besitzen die gleiche Priorit&#xe4;t. &#xa;&#xa;Jede Sportart darf max. 2x gew&#xe4;hlt werden.&#xa;Besonderheiten wie Badminton  k&#xf6;nnen nur 1x&#xa;gew&#xe4;hlt werden.&#xa;&#xa;Leichtathhletik und Fussball wird nur im&#xa;Sommersemester angeboten. &#xa;"/>
                 <Property name="autoscrolls" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
