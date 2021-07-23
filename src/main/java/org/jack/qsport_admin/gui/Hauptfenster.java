@@ -534,7 +534,7 @@ public class Hauptfenster extends javax.swing.JFrame {
         DBAnbindung db = new DBAnbindung(host, user, password);
         qsp.setListeStudent(db.holeAlleStudenten());
         jTableGesamtListe.setModel(new TableModelGesamtListe(qsp.getListeStudent()));
-        new CreatePDF(qsp).printJahrgangsWahl();
+        //new CreatePDF(qsp).printJahrgangsWahl();
     }//GEN-LAST:event_wahlAusDBActionPerformed
 
     private void jButtonZuweisungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZuweisungActionPerformed

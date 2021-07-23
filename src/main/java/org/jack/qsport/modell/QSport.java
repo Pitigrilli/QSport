@@ -70,7 +70,7 @@ public class QSport implements Serializable {
         ArrayList<Kurs> semesterKurse = getKurseImSemester(sem);
         
         for (Student s : this.getListeStudent()) {
-//          System.out.println("* "+s+" *");
+          System.out.println("* "+s+" *");
             Collections.sort(semesterKurse); // sortieren der Kurse nach anzahlStudent aufsteigend
             gefunden:
             for (Kurs k : semesterKurse) { // Der Reihe nach werden die Kurse durchgegangen
@@ -80,15 +80,15 @@ public class QSport implements Serializable {
                  */
                 for (int i = 0; i < 5; i++) {
                     Sportart sa = s.getWahl(i);
-                    //System.out.println(""+k.getSportart()+" "+sa+" "+s.isBelegt(i));
+                    System.out.print(""+k.getSportart()+" "+sa+" "+s.isBelegt(i));
                     if (!s.isBelegt(i) && k.getSportart().equals(sa)) {
                         k.getStudentList().add(s);
                         s.setBelegt(i);
                         break gefunden;
-                    }
+                    } else {System.out.println(" ungleich");}
 
                 }
-                //System.out.println("kein Wunsch gefunden");
+                System.out.println("kein Wunsch gefunden");
 
             }
 

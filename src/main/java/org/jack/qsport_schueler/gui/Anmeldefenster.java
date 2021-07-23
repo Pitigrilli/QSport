@@ -20,7 +20,7 @@ public class Anmeldefenster extends javax.swing.JFrame {
      */
     public Anmeldefenster() {
         this.initComponents();
-        jXDatePicker1.setDate(java.sql.Date.valueOf("2002-01-01"));
+        jXDatePicker1.setDate(java.sql.Date.valueOf("2000-01-01"));
         
         pack();
     }
@@ -174,6 +174,7 @@ public class Anmeldefenster extends javax.swing.JFrame {
 
         Student stud = new Student(this.getNachname(), this.getVorname(), this.getDate());
         DBAnbindung v = new DBAnbindung("jsg-kg.fortiddns.com","q11","q11");
+        //DBAnbindung v = new DBAnbindung("172.29.253.250","q11","q11");
         Student gefunden = v.searchStudent(stud);
         System.out.print(gefunden);
 

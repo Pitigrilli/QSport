@@ -57,6 +57,10 @@ public class Sportart implements Serializable{
     public String toString(){
         return name;
     }
+    
+    public boolean equals(Sportart s){
+        return name.equals(s.name);
+    }
 
 
     public static void main(String[] args) {
