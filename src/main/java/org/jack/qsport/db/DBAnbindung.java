@@ -136,7 +136,10 @@ public class DBAnbindung {
                     }
                 }
                 liste.add(s);
+                System.out.println(s);
             }
+
+            
         } catch (Exception e) {
         }
 
@@ -264,6 +267,7 @@ public class DBAnbindung {
 
     public static void main(String[] args) {
         DBAnbindung anbindung = new DBAnbindung("jsg-kg.fortiddns.com", "q11", "q11");
+        anbindung.selectAll();
     }
 
     public void testeVerbindung() {
