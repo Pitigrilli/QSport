@@ -27,7 +27,7 @@ public class TableModelKurse extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 2;
+        return 3;
     }
     
     @Override
@@ -38,6 +38,9 @@ public class TableModelKurse extends AbstractTableModel {
         }
         if(col==1){
             s="Sportart";
+        }
+        if(col==2){
+            s="Max";
         }
         return s;
     }
@@ -51,6 +54,9 @@ public class TableModelKurse extends AbstractTableModel {
       }
       if(col==1){
           o = k.getSportart();
+      }
+      if(col==2){
+          o = k.getMaxAnzahl();
       }
       return o;
     }

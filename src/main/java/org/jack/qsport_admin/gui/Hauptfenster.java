@@ -449,6 +449,7 @@ public class Hauptfenster extends javax.swing.JFrame {
         // TODO add your handling code here:
         Persistenz pst = new Persistenz(qsp);
         qsp = pst.read();
+        qsp.sortiereKurse();
         spTable.setModel(new TableModelKurse(qsp.getKurse()));
         spTable.revalidate();
     }//GEN-LAST:event_jButtonLoadKursActionPerformed
@@ -470,6 +471,7 @@ public class Hauptfenster extends javax.swing.JFrame {
     private void spRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spRemoveActionPerformed
         Kurs k = (Kurs) qsp.getKurse().get(spTable.getSelectedRow());
         qsp.getKurse().remove(k);
+        qsp.sortiereKurse();
         spTable.revalidate();
         System.out.println("Vorhandene Kurse:");
         for (Kurs kurs : qsp.getKurse()) {
@@ -483,6 +485,7 @@ public class Hauptfenster extends javax.swing.JFrame {
         int spMax = Integer.parseInt(txtmaxAnzahl.getText());
         Kurs k = new Kurs(sa, sem, spMax, 0);
         qsp.getKurse().add(k);
+        qsp.sortiereKurse();
         spTable.revalidate();
         System.out.println(k);
     }//GEN-LAST:event_spAddActionPerformed

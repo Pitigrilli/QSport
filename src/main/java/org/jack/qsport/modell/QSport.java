@@ -3,6 +3,7 @@ package org.jack.qsport.modell;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -47,6 +48,15 @@ public class QSport implements Serializable {
 
     public int getAnzahlKurse() {
         return anzahlKurse;
+    }
+    
+    public void sortiereKurse(){
+        /* 
+            Code zum sortieren der Kurse in der Liste der Kurse:
+                1. Semester
+                2. Sportart-Name
+        */
+        Collections.sort(kurse, new KursComparator());
     }
 
     /*
@@ -104,4 +114,12 @@ public class QSport implements Serializable {
         
     }
 
+}
+
+class KursComparator implements Comparator<Kurs> {
+  
+    // override the compare() method
+    public int compare(Kurs k1, Kurs k2){
+            return k1.getSemester().compareTo(k2.getSemester());
+    }
 }
