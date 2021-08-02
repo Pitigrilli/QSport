@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
 import org.jack.qsport.modell.QSport;
 import org.jack.qsport.modell.Student;
 import org.jack.qsport.modell.Sportart;
+import org.jack.qsport.modell.Kurs;
+import org.jack.qsport.modell.Semester;
 
 /**
  *
@@ -75,7 +77,7 @@ public class DBAnbindung {
 
         }
     }
-
+    
     public ArrayList<Student> holeStudenten(Sportart sa) {
         String sportname;
         sportname = sa.toString();
@@ -105,6 +107,28 @@ public class DBAnbindung {
         for (Student s : liste) {
             System.out.println(s);
         }
+        return liste;
+    }
+
+    public ArrayList<Kurs> holeKurse() {
+        ArrayList<Kurs> liste = new ArrayList();
+        try {
+            //statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            statement = connect.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM qsport.kurse");
+
+            while (resultSet.next()) {
+                String semester = resultSet.getString("semester");
+                String sportart = resultSet.getString("sportart");
+                int max = resultSet.getInt("max");
+                Kurs k  = new Kurs(Sportart.valueOf(sportart),Semester.get(semester), max,0);
+                System.out.println(semester+" "+sportart+" ");
+                liste.add(k);
+            }
+            
+        } catch (Exception e) {
+        }
+        
         return liste;
     }
 

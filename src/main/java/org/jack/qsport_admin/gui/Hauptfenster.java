@@ -447,8 +447,14 @@ public class Hauptfenster extends javax.swing.JFrame {
 
     private void jButtonLoadKursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadKursActionPerformed
         // TODO add your handling code here:
-        Persistenz pst = new Persistenz(qsp);
-        qsp = pst.read();
+        //Persistenz pst = new Persistenz(qsp);
+        //qsp = pst.read();
+        System.out.println("Hole die Ergebnisse der Wahl");
+        String host = jTextField_host.getText();
+        String user = jTextField_user.getText();
+        String password = jTextField_password.getText();
+        DBAnbindung db = new DBAnbindung(host, user, password);
+        qsp.setKurse(db.holeKurse());
         qsp.sortiereKurse();
         spTable.setModel(new TableModelKurse(qsp.getKurse()));
         spTable.revalidate();
