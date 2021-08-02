@@ -88,6 +88,9 @@ public class QSport implements Serializable {
                 Passt die Sportart des Kurse zu dem Wunsch des Studenten, so wird der Student 
                 eingetragen. es muss auch gemerkt werden, dass dieser Wunsch bereits vergeben ist.
                  */
+                if(k.getAnzahlStudent()>=k.getMaxAnzahl()){
+                    continue;
+                }
                 for (int i = 0; i < 5; i++) {
                     Sportart sa = s.getWahl(i);
                     System.out.print(""+k.getSportart()+" "+sa+" "+s.isBelegt(i));
