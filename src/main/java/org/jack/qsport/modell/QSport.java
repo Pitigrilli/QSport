@@ -49,13 +49,13 @@ public class QSport implements Serializable {
     public int getAnzahlKurse() {
         return anzahlKurse;
     }
-    
-    public void sortiereKurse(){
+
+    public void sortiereKurse() {
         /* 
             Code zum sortieren der Kurse in der Liste der Kurse:
                 1. Semester
                 2. Sportart-Name
-        */
+         */
         Collections.sort(kurse, new KursComparator());
     }
 
@@ -78,9 +78,9 @@ public class QSport implements Serializable {
      */
     public void einteilung(Semester sem) {
         ArrayList<Kurs> semesterKurse = getKurseImSemester(sem);
-        
+
         for (Student s : this.getListeStudent()) {
-          System.out.println("* "+s+" *");
+            // System.out.println("* "+s+" *");
             Collections.sort(semesterKurse); // sortieren der Kurse nach anzahlStudent aufsteigend
             gefunden:
             for (Kurs k : semesterKurse) { // Der Reihe nach werden die Kurse durchgegangen
@@ -88,20 +88,22 @@ public class QSport implements Serializable {
                 Passt die Sportart des Kurse zu dem Wunsch des Studenten, so wird der Student 
                 eingetragen. es muss auch gemerkt werden, dass dieser Wunsch bereits vergeben ist.
                  */
-                if(k.getAnzahlStudent()>=k.getMaxAnzahl()){
+                if (k.getAnzahlStudent() >= k.getMaxAnzahl()) {
                     continue;
                 }
                 for (int i = 0; i < 5; i++) {
                     Sportart sa = s.getWahl(i);
-                    System.out.print(""+k.getSportart()+" "+sa+" "+s.isBelegt(i));
+                    // System.out.print(""+k.getSportart()+" "+sa+" "+s.isBelegt(i));
                     if (!s.isBelegt(i) && k.getSportart().equals(sa)) {
                         k.getStudentList().add(s);
                         s.setBelegt(i);
                         break gefunden;
-                    } else {System.out.println(" ungleich");}
+                    } else {
+                        //System.out.println(" ungleich");
+                    }
 
                 }
-                System.out.println("kein Wunsch gefunden");
+                //  System.out.println("kein Wunsch gefunden");
 
             }
 
@@ -114,15 +116,31 @@ public class QSport implements Serializable {
                 System.out.println(s.getName() + ", " + s.getVorname());
             }
         }
-        
+
+    }
+    
+    public void printBelegung(){
+      for(Student s: listeStudent){
+          System.out.print(s.getName()+", "+s.getVorname()+";");
+          for(Kurs k: getKurse()){
+              if(k.isInKurs(s)){
+                  System.out.print(k.getSemester()+" "+k.getSportart()+";");
+              }
+          }
+       System.out.println();
+      }
     }
 
 }
 
+
+
+
+
 class KursComparator implements Comparator<Kurs> {
-  
+
     // override the compare() method
-    public int compare(Kurs k1, Kurs k2){
-            return k1.getSemester().compareTo(k2.getSemester());
+    public int compare(Kurs k1, Kurs k2) {
+        return k1.getSemester().compareTo(k2.getSemester());
     }
 }

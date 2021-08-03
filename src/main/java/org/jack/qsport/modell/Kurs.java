@@ -71,5 +71,9 @@ public class Kurs implements Serializable, Comparable {
         int anzahl = k.getAnzahlStudent();
         return this.getAnzahlStudent()-anzahl;
     }
+    
+    public boolean isInKurs(Student s){
+        return studentList.contains(s);
+    }
 
 }

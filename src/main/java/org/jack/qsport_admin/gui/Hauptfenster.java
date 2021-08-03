@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import org.jack.qsport.pdf.CreatePDF;
+
 /**
  *
  * @author
@@ -528,7 +529,7 @@ public class Hauptfenster extends javax.swing.JFrame {
     private void jTabbedEinteilungFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedEinteilungFocusGained
         // TODO add your handling code here:
 
-        
+
     }//GEN-LAST:event_jTabbedEinteilungFocusGained
 
     private void jTabbedEinteilungFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedEinteilungFocusLost
@@ -561,10 +562,9 @@ public class Hauptfenster extends javax.swing.JFrame {
         pdf.printKursVerteilung(Semester.Q12_1);
         qsp.einteilung(Semester.Q12_2);
         pdf.printKursVerteilung(Semester.Q12_2);
-        
+
         pdf.printUebersicht();
-        
-        
+
         System.out.println("");
 
         System.out.println("**** Keine Kurse erhalten ******");
@@ -576,13 +576,19 @@ public class Hauptfenster extends javax.swing.JFrame {
 
                 }
             }
-            if(anzahlBelegungen<4){
-                int fehlend = 4-anzahlBelegungen;
-                System.out.println("Fehlend: "+fehlend+"  "+s.getName()+", "+s.getVorname());
+            if (anzahlBelegungen < 4) {
+                int fehlend = 4 - anzahlBelegungen;
+                System.out.print("Fehlend: " + fehlend + "  " + s.getName() + ", " + s.getVorname());
+                for (int i = 0; i < 5; i++) {
+                    if (s.isBelegt(i)) {
+                        System.out.print(" sem" + i);
+                    }
+                }
+                System.out.println();
             }
         }
 
-
+        qsp.printBelegung();
     }//GEN-LAST:event_jButtonZuweisungActionPerformed
 
     private void jTextField_hostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_hostActionPerformed
