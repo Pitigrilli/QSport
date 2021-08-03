@@ -553,37 +553,46 @@ public class Hauptfenster extends javax.swing.JFrame {
 //        for(Kurs k: kurse){
 //            System.out.println(k);
 //        }
-        CreatePDF pdf = new CreatePDF(qsp);
-        qsp.einteilung(Semester.Q11_1);
-        pdf.printKursVerteilung(Semester.Q11_1);
-        qsp.einteilung(Semester.Q11_2);
-        pdf.printKursVerteilung(Semester.Q11_2);
-        qsp.einteilung(Semester.Q12_1);
-        pdf.printKursVerteilung(Semester.Q12_1);
-        qsp.einteilung(Semester.Q12_2);
-        pdf.printKursVerteilung(Semester.Q12_2);
 
+        /*
+        Einteilung 
+
+         */
+        qsp.einteilung(Semester.Q11_1);
+        qsp.einteilung(Semester.Q11_2);
+        qsp.einteilung(Semester.Q12_1);
+        qsp.einteilung(Semester.Q12_2);
+        //qsp.einteilung2();
+
+        CreatePDF pdf = new CreatePDF(qsp);
+        pdf.printKursVerteilung(Semester.Q11_1);
+        pdf.printKursVerteilung(Semester.Q11_2);
+        pdf.printKursVerteilung(Semester.Q12_1);
+        pdf.printKursVerteilung(Semester.Q12_2);
         pdf.printUebersicht();
 
         System.out.println("");
 
         System.out.println("**** Keine Kurse erhalten ******");
+        qsp.sortiereSchüler();
         for (Student s : qsp.getListeStudent()) {
-            int anzahlBelegungen = 0;
-            for (int i = 0; i < 5; i++) {
-                if (s.isBelegt(i)) {
-                    anzahlBelegungen++;
+            if (s.getAnzahlSemBelegt() < 4) {
+                int fehlend = 4 - s.getAnzahlSemBelegt();
+                System.out.print("Fehlend: " + fehlend + "Semester  " + s.getName() + ", " + s.getVorname());
 
+                if (s.istImSemester(Semester.Q11_1)) {
+                    System.out.print(" " + Semester.Q11_1);
                 }
-            }
-            if (anzahlBelegungen < 4) {
-                int fehlend = 4 - anzahlBelegungen;
-                System.out.print("Fehlend: " + fehlend + "  " + s.getName() + ", " + s.getVorname());
-                for (int i = 0; i < 5; i++) {
-                    if (s.isBelegt(i)) {
-                        System.out.print(" sem" + i);
-                    }
+                if (s.istImSemester(Semester.Q11_2)) {
+                    System.out.print(" " + Semester.Q11_2);
                 }
+                if (s.istImSemester(Semester.Q12_1)) {
+                    System.out.print(" " + Semester.Q12_1);
+                }
+                if (s.istImSemester(Semester.Q12_2)) {
+                    System.out.print(" " + Semester.Q12_2);
+                }
+
                 System.out.println();
             }
         }

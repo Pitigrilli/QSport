@@ -58,6 +58,13 @@ public class QSport implements Serializable {
          */
         Collections.sort(kurse, new KursComparator());
     }
+    
+    public void sortiereSchüler(){
+        /*
+        Sortiert nach der Anzahl der Belegungen
+        */
+        Collections.sort(listeStudent, new StudentComparatorSemBelegt());
+    }
 
     /*
         Gibt ein Feld mit Kursen zurück, dass im gewünschten Semester liegt. 
@@ -93,10 +100,11 @@ public class QSport implements Serializable {
                 }
                 for (int i = 0; i < 5; i++) {
                     Sportart sa = s.getWahl(i);
-                    // System.out.print(""+k.getSportart()+" "+sa+" "+s.isBelegt(i));
-                    if (!s.isBelegt(i) && k.getSportart().equals(sa)) {
+                    // System.out.print(""+k.getSportart()+" "+sa+" "+s.istWunschBelegt(i));
+                    if (!s.istWunschBelegt(i) && k.getSportart().equals(sa)) {
                         k.getStudentList().add(s);
-                        s.setBelegt(i);
+                        s.setWunschBelegt(i);
+                        s.belegeSemester(k.getSemester());
                         break gefunden;
                     } else {
                         //System.out.println(" ungleich");
@@ -104,9 +112,7 @@ public class QSport implements Serializable {
 
                 }
                 //  System.out.println("kein Wunsch gefunden");
-
             }
-
         }
         // Ausgabe aller Kurse im Semester
         System.out.println("*******" + sem + "*******");
@@ -118,29 +124,125 @@ public class QSport implements Serializable {
         }
 
     }
-    
-    public void printBelegung(){
-      for(Student s: listeStudent){
-          System.out.print(s.getName()+", "+s.getVorname()+";");
-          for(Kurs k: getKurse()){
-              if(k.isInKurs(s)){
-                  System.out.print(k.getSemester()+" "+k.getSportart()+";");
-              }
-          }
-       System.out.println();
-      }
+
+    public void einteilung2() {
+
+        //Alle  Kurse holen
+        // Erster Wunsch(Individualsportart) des Studenten erfüllen
+        ArrayList<Kurs> kurse = getKurse();
+        for (Student s : this.getListeStudent()) {
+            // System.out.println("* "+s+" *");
+            Collections.sort(kurse); // sortieren der Kurse nach anzahlStudent aufsteigend
+            for (Kurs k : kurse) { // Der Reihe nach werden die Kurse durchgegangen
+                /*
+                Passt die Sportart des Kurse zu dem Wunsch des Studenten, so wird der Student 
+                eingetragen. es muss auch gemerkt werden, dass dieser Wunsch bereits vergeben ist.
+                 */
+                if (k.getAnzahlStudent() >= k.getMaxAnzahl()) {
+                    continue; // ist der Kurs voll, so wird der nächste probiert
+                }
+                Sportart sa = s.getWahl(0);
+                // System.out.print(""+k.getSportart()+" "+sa+" "+s.istWunschBelegt(i));
+                if (k.getSportart().equals(sa)) {
+                    k.getStudentList().add(s);
+                    s.setWunschBelegt(0);
+                    s.belegeSemester(k.getSemester());
+                } 
+            }
+
+        }
+        // Zweiter Wunsch(Mannschaftssportart) des Studenten erfüllen
+        for (Student s : this.getListeStudent()) {
+            // System.out.println("* "+s+" *");
+            Collections.sort(kurse); // sortieren der Kurse nach anzahlStudent aufsteigend
+            for (Kurs k : kurse) { // Der Reihe nach werden die Kurse durchgegangen
+                /*
+                Passt die Sportart des Kurse zu dem Wunsch des Studenten, so wird der Student 
+                eingetragen. es muss auch gemerkt werden, dass dieser Wunsch bereits vergeben ist.
+                 */
+                if (s.istImSemester(k.getSemester()) || k.getAnzahlStudent() >= k.getMaxAnzahl()) {
+                    continue; // ist der Kurs voll, so wird der nächste probiert
+                }
+                Sportart sa = s.getWahl(1);
+                // System.out.print(""+k.getSportart()+" "+sa+" "+s.istWunschBelegt(i));
+                if (k.getSportart().equals(sa)) {
+                    k.getStudentList().add(s);
+                    s.setWunschBelegt(1);
+                    s.belegeSemester(k.getSemester());
+                } 
+            }
+
+        }
+        //Restliche Wünsche erfüllen
+     
+        for (Student s : this.getListeStudent()) {
+            // System.out.println("* "+s+" *");
+            Collections.sort(kurse); // sortieren der Kurse nach anzahlStudent aufsteigend
+            gefunden:
+            for (Kurs k : kurse) { // Der Reihe nach werden die Kurse durchgegangen
+                /*
+                Passt die Sportart des Kurse zu dem Wunsch des Studenten, so wird der Student 
+                eingetragen. es muss auch gemerkt werden, dass dieser Wunsch bereits vergeben ist.
+                 */
+                if (s.istImSemester(k.getSemester()) || k.getAnzahlStudent() >= k.getMaxAnzahl()) {
+                    continue;
+                }
+                for (int i = 2; i < 5; i++) {
+                    Sportart sa = s.getWahl(i);
+                    // System.out.print(""+k.getSportart()+" "+sa+" "+s.istWunschBelegt(i));
+                    if (!s.istWunschBelegt(i) && k.getSportart().equals(sa)) {
+                        k.getStudentList().add(s);
+                        s.setWunschBelegt(i);
+                        s.belegeSemester(k.getSemester());
+                        break gefunden;
+                    } else {
+                        //System.out.println(" ungleich");
+                    }
+
+                }
+                //  System.out.println("kein Wunsch gefunden");
+
+            }
+
+        }
+
+        // Ausgabe aller Kurse 
+        System.out.println("******* Ausgabe *******");
+        for (Kurs k : kurse) {
+            System.out.println("***** "+k.getSemester()+ "  " + k.getSportart() + ": " + k.getAnzahlStudent());
+            for (Student s : k.getStudentList()) {
+                System.out.println(s.getName() + ", " + s.getVorname());
+            }
+        }
+
+    }
+
+    public void printBelegung() {
+        for (Student s : listeStudent) {
+            System.out.print(s.getName() + ", " + s.getVorname() + ";");
+            for (Kurs k : getKurse()) {
+                if (k.isInKurs(s)) {
+                    System.out.print(k.getSemester() + " " + k.getSportart() + ";");
+                }
+            }
+            System.out.println();
+        }
     }
 
 }
-
-
-
-
 
 class KursComparator implements Comparator<Kurs> {
 
     // override the compare() method
     public int compare(Kurs k1, Kurs k2) {
         return k1.getSemester().compareTo(k2.getSemester());
+    }
+}
+
+class StudentComparatorSemBelegt implements Comparator<Student> {
+
+    // override the compare() method
+    public int compare(Student s1,  Student s2) {
+        return s1.getAnzahlSemBelegt()-(s2.getAnzahlSemBelegt());
     }
 }

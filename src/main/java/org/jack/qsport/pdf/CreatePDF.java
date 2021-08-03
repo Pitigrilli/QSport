@@ -61,6 +61,7 @@ public class CreatePDF {
             table.addCell("Sportart");
             table.addCell("Anzahl");
 
+            qsp.sortiereKurse();
             for (Kurs k : qsp.getKurse()) {
                 table.addCell(k.getSemester().toString());
                 table.addCell(k.getSportart().toString());
