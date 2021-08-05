@@ -1,6 +1,7 @@
 package org.jack.qsport.modell;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Student implements Serializable {
@@ -63,6 +64,8 @@ public class Student implements Serializable {
         if(istImSem12_2)anzahl++;
         return anzahl;
     }
+    
+    private final ArrayList<Kurs> meineKurse = new ArrayList();
 
     public Student(String name, String vorname, Date gebdate) {
         this.name = name;
@@ -162,5 +165,9 @@ public class Student implements Serializable {
         }
 
         return ausgabe;
+    }
+
+    public ArrayList<Kurs> getMeineKurse() {
+        return meineKurse;
     }
 }
