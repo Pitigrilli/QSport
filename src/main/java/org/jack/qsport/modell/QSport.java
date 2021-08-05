@@ -176,6 +176,7 @@ public class QSport implements Serializable {
             for (Kurs k : kurse) { // Der Reihe nach werden die Kurse durchgegangen
                 // Ist der Kurs nicht Mannschaftssportart, oder das Semester des Kurses schon belegt
                 // oder voll, so wird der nächste probiert
+
                 
                 /************
                  * In der nächsten Bedinmgung muss ein Fehler sein, weil kein Schüler, der schon einen 
@@ -210,6 +211,37 @@ public class QSport implements Serializable {
         System.out.println("******* Ausgabe der Zuteilung Mannschaftssportart **************");
         for (Student s : listeStudent) {
             System.out.print(s.getName() + ", " + s.getVorname() + " Kurse: "+s.getAnzahlBelegteKurse()+": ");
+
+                if (!k.getSportart().getArt().equals(Art.TEAM) || s.istImSemester(k.getSemester()) || k.getAnzahlStudent() >= k.getMaxAnzahl()) {
+                    continue;
+                }
+                /*
+                Passt die Sportart des Kurse zu dem Wunsch des Studenten und ist dieser Wunsch noch nicht erfüllt,
+                so wird der Student  eingetragen. 
+                 */
+                for (int i = 1; i < 5; i++) {
+                    if(s.istWunschBelegt(i)){
+                        continue;
+                    }
+                    Sportart sa = s.getWahl(i);
+                    // System.out.print(""+k.getSportart()+" "+sa+" "+s.istWunschBelegt(i));
+                    if (k.getSportart().equals(sa)) {
+                        k.getStudentList().add(s);
+                        s.setWunschBelegt(i);
+                        s.belegeSemester(k.getSemester());
+                        s.getMeineKurse().add(k);
+                        break gefunden;
+                    }
+                }
+            }
+
+        }
+
+ 
+        System.out.println("******* Ausgabe der Zuteilung Mannschaftssportart **************");
+        for (Student s : listeStudent) {
+            System.out.print(s.getName() + ", " + s.getVorname() + " ");
+>>>>>>> origin/master
             for (Kurs k : s.getMeineKurse()) {
                 System.out.print(k.toString() + "; ");
             }
