@@ -104,9 +104,9 @@ public class DBAnbindung {
             System.out.println();
         } catch (Exception e) {
         }
-        for (Student s : liste) {
-            System.out.println(s);
-        }
+//        for (Student s : liste) {
+//            System.out.println(s);
+//        }
         return liste;
     }
 

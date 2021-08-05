@@ -556,48 +556,48 @@ public class Hauptfenster extends javax.swing.JFrame {
 
         /*
         Einteilung 
-
-         */
-        qsp.einteilung(Semester.Q11_1);
+                qsp.einteilung(Semester.Q11_1);
         qsp.einteilung(Semester.Q11_2);
         qsp.einteilung(Semester.Q12_1);
         qsp.einteilung(Semester.Q12_2);
-        //qsp.einteilung2();
+         */
 
-        CreatePDF pdf = new CreatePDF(qsp);
-        pdf.printKursVerteilung(Semester.Q11_1);
-        pdf.printKursVerteilung(Semester.Q11_2);
-        pdf.printKursVerteilung(Semester.Q12_1);
-        pdf.printKursVerteilung(Semester.Q12_2);
-        pdf.printUebersicht();
+        qsp.einteilung2();
+
+//        CreatePDF pdf = new CreatePDF(qsp);
+//        pdf.printKursVerteilung(Semester.Q11_1);
+//        pdf.printKursVerteilung(Semester.Q11_2);
+//        pdf.printKursVerteilung(Semester.Q12_1);
+//        pdf.printKursVerteilung(Semester.Q12_2);
+//        pdf.printUebersicht();
 
         System.out.println("");
 
-        System.out.println("**** Keine Kurse erhalten ******");
-        qsp.sortiereSchüler();
-        for (Student s : qsp.getListeStudent()) {
-            if (s.getAnzahlSemBelegt() < 4) {
-                int fehlend = 4 - s.getAnzahlSemBelegt();
-                System.out.print("Fehlend: " + fehlend + "Semester  " + s.getName() + ", " + s.getVorname());
+//        System.out.println("**** Keine Kurse erhalten ******");
+//        qsp.sortiereSchüler();
+//        for (Student s : qsp.getListeStudent()) {
+//            if (s.getAnzahlSemBelegt() < 4) {
+//                int fehlend = 4 - s.getAnzahlSemBelegt();
+//                System.out.print("Fehlend: " + fehlend + "Semester  " + s.getName() + ", " + s.getVorname());
+//
+//                if (s.istImSemester(Semester.Q11_1)) {
+//                    System.out.print(" " + Semester.Q11_1);
+//                }
+//                if (s.istImSemester(Semester.Q11_2)) {
+//                    System.out.print(" " + Semester.Q11_2);
+//                }
+//                if (s.istImSemester(Semester.Q12_1)) {
+//                    System.out.print(" " + Semester.Q12_1);
+//                }
+//                if (s.istImSemester(Semester.Q12_2)) {
+//                    System.out.print(" " + Semester.Q12_2);
+//                }
+//
+//                System.out.println();
+//            }
+//        }
 
-                if (s.istImSemester(Semester.Q11_1)) {
-                    System.out.print(" " + Semester.Q11_1);
-                }
-                if (s.istImSemester(Semester.Q11_2)) {
-                    System.out.print(" " + Semester.Q11_2);
-                }
-                if (s.istImSemester(Semester.Q12_1)) {
-                    System.out.print(" " + Semester.Q12_1);
-                }
-                if (s.istImSemester(Semester.Q12_2)) {
-                    System.out.print(" " + Semester.Q12_2);
-                }
-
-                System.out.println();
-            }
-        }
-
-        qsp.printBelegung();
+//        qsp.printBelegung();
     }//GEN-LAST:event_jButtonZuweisungActionPerformed
 
     private void jTextField_hostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_hostActionPerformed
